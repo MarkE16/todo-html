@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <title>Online HTML Editor</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="js/index.js" defer></script>
+    <noscript>
+      <style>
+
+        #root {
+          display: none;
+        }
+
+        p {
+          font-family: 'Arial', sans-serif;
+        }
+      </style>
+      <h1>Uh oh...</h1>
+      <p>
+        Looks like <code>JavaScript</code> is disabled. Not sure why it's disabled, but <code>JavaScript</code> is <b>required</b>
+        to run this app. If you disabled it yourself, open the inspector and re-enable it.
+      </p>
+    </noscript>
+  </head>
+  <body>
+    <div id="root">
+      <h1>My Todos</h1>
+      <p>
+        A small to-do app built using no frameworks/libraries (No React!).
+        Note: Todos are saved via <code>LocalStorage</code>, meaning the data can be modified. This means that if it were to be
+        modified, the program <i>can</i> break. Be warned. If it does happen to where messing with <code>LocalStorage</code> breaks, just
+        select <code>Clear All Todos</code>, as this will clear <code>LocalStorage</code>.<br>
+        <a target="_blank" href="https://github.com/MarkE16">GitHub</a> . <a target="_blank" href="https://marke16.github.io/my-website/">Website</a><br>
+
+      </p>
+      <hr>
+      <div id="actions">
+        <input type="text" id="in" placeholder="What needs to be done?" onkeypress="updateTodo(event);" oninput="updateTodo(event);">
+        <button id="btn" disabled onclick="addTodo();">Add Todo</button>
+        <button id="clearbtn" disabled onclick="clearTodos();">Clear All Todos</button>
+      </div>
+      <hr>
+
+      <!-- Current list of todos! -->
+      <div id="todos-container">
+        <ul id="todos"></ul>
+      </div>
+      <h2 id="counter">+ No Todos!</h2>
+    </div>
+  </body>
+</html>

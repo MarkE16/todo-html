@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Ubuntu&display=swap');
+/* Give the `div` with the corrosponding `id` "root" the following styles ... */
+#root {
+  margin: 10px calc(90% - 70vw);
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#todos-container {
+  height: calc(100vh / 2);
+  overflow-y: auto;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.action-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+  border-radius: 0;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.action-btn:hover {
+  background-color: rgba(212, 211, 210, 0.2);
+}
+
+.action-btn:active {
+  background-color: rgba(212, 211, 210, 0.4);
+}
+
+a,
+.action-btn {
+  text-decoration: none;
+  color: #ccc;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: 100ms ease;
+}
+
+a:hover,
+.action-btn:hover {
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+
+input {
+  font-size: 16px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+input::placeholder {
+  font-family: 'Fira Sans', sans-serif;
+  user-select: none;
+  font-size: 15px;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+label {
+  user-select: none;
+  font-size: 17px;
+  /* SYNTAX: TOP, RIGHT, BOTTOM, LEFT */
+  margin: 0 5px 0 3px;
+}
+
+#actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#in,
+.edit-input {
+  width: 80%;
+  padding: 5px 10px;
+  border: 3px solid #edeceb;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+#in:focus,
+.edit-input:focus {
+  border: 3px solid #adacac;
+}
+
+.todo {
+  margin: 10px 5px;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-family: 'Fira Sans', sans-serif;
+  user-select: none;
+}
+
+button:hover {
+  background-color: #ccc;
+}
+
+button:disabled:hover {
+  background-color: white;
+}
+
+
+.edit-input {
+  display: none;
+}
