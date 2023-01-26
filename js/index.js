@@ -105,6 +105,7 @@ function addTodo(objVal=undefined) {
   const currTodo = document.createElement("li"); // Create a list element
   const delBtn = document.createElement("button");
   const editBtn = document.createElement("button");
+  const cancelBtn = document.createElement("button");
   const lbl = document.createElement("label");
   const editInput = document.createElement("input");
   let isEditing = false;
@@ -121,16 +122,21 @@ function addTodo(objVal=undefined) {
     lbl.textContent = input.value;
     editInput.value = input.value;
   }
-  lbl.htmlFor = "todo-" + all.length + 1;
-  checkbox.id = "todo-" + all.length + 1;
+  // Not the best way to create a unique ID, but it works for the time being.
+  const randomID = Math.floor(Math.random() * new Date().getTime());
+  lbl.htmlFor = "todo-" + randomID;
+  checkbox.id = "todo-" + randomID;
   currTodo.id = all.length;
   delBtn.textContent = "Delete";
   delBtn.style.display = "none";
+  cancelBtn.textContent = "Cancel";
+  cancelBtn.style.display = "none";
   editBtn.textContent = "Edit";
   editInput.type = "text";
   checkbox.type = "checkbox";
   editBtn.className = "action-btn";
   delBtn.className = "action-btn";
+  cancelBtn.className = "action-btn";
   editInput.className = "edit-input";
   editInput.placeholder = "Enter Todo";
   currTodo.className = "todo";
@@ -157,6 +163,7 @@ function addTodo(objVal=undefined) {
       isEditing = true;
       editInput.focus();
       delBtn.style.display = "block";
+      cancelBtn.style.display = "block";
     } else {
       if (editInput.value.trim().length === 0) {
         alert("You must enter a todo or delete it!");
@@ -169,6 +176,7 @@ function addTodo(objVal=undefined) {
       hide(editInput);
       isEditing = false;
       delBtn.style.display = "none";
+      cancelBtn.style.display = "none";
       save();
     }
   }
@@ -190,6 +198,16 @@ function addTodo(objVal=undefined) {
     }
   }
 
+  cancelBtn.onclick = function() {
+    hide(editInput);
+    show(lbl);
+    editBtn.textContent = "Edit";
+    isEditing = false;
+    editInput.value = lbl.textContent;
+    delBtn.style.display = "none";
+    cancelBtn.style.display = "none";
+  }
+
   // Adding nodes to the DOM and small changes to other nodes.
   fragment
     .appendChild(currTodo)
@@ -198,6 +216,7 @@ function addTodo(objVal=undefined) {
   currTodo.appendChild(editInput);
   currTodo.appendChild(editBtn);
   currTodo.appendChild(delBtn);
+  currTodo.appendChild(cancelBtn);
   todos.appendChild(fragment); // Add the list element to the `<ul>` element
   input.value = ""; // Reset the input state
   input.focus(); // Focus the input element
