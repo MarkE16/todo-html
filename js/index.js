@@ -5,6 +5,14 @@ const btn = document.getElementById("btn");
 const clearBtn = document.getElementById("clearbtn");
 const counter = document.getElementById("counter");
 
+/* Event Listeners */
+input.addEventListener("keypress", function(event) {
+  updateTodo(event);
+});
+
+input.addEventListener("input", function(event) {
+  updateTodo(event);
+});
 
 function objectMap(obj) {
   return Object.keys(obj).map(key => {
@@ -12,7 +20,7 @@ function objectMap(obj) {
       text: obj[key].text,
       checked: obj[key].checked
     }
-  })
+  });
 }
 
 window.onload = function() {
@@ -126,7 +134,7 @@ function addTodo(objVal=undefined) {
   const randomID = Math.floor(Math.random() * new Date().getTime());
   lbl.htmlFor = "todo-" + randomID;
   checkbox.id = "todo-" + randomID;
-  currTodo.id = all.length;
+  currTodo.id = "" + randomID;
   delBtn.textContent = "Delete";
   delBtn.style.display = "none";
   cancelBtn.textContent = "Cancel";
@@ -157,7 +165,6 @@ function addTodo(objVal=undefined) {
   editBtn.onclick = function() {
     if (!isEditing) {
       editBtn.textContent = "Finish";
-      editBtn.style.opacity = 1;
       hide(lbl);
       show(editInput);
       isEditing = true;
@@ -192,11 +199,11 @@ function addTodo(objVal=undefined) {
     save();
   }
 
-  editInput.onkeypress = function(e) {
-    if (e.keyCode === 13) {
+  editInput.addEventListener("keypress", function(e) {
+    if (e.code === "Enter") {
       editBtn.click();
     }
-  }
+  })
 
   cancelBtn.onclick = function() {
     hide(editInput);

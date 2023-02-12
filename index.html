@@ -5,14 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <script src="js/index.js" defer></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <script src="./js/index.js" defer></script>
     <noscript>
       <style>
-
         #root {
           display: none;
         }
@@ -36,12 +35,12 @@
         Note: Todos are saved via <code>LocalStorage</code>, meaning the data can be modified. This means that if it were to be
         modified, the program <i>can</i> break. Be warned. If it does happen to where messing with <code>LocalStorage</code> breaks, just
         select <code>Clear All Todos</code>, as this will clear <code>LocalStorage</code>.<br>
-        <a target="_blank" href="https://github.com/MarkE16">GitHub</a> . <a target="_blank" href="https://marke16.github.io/my-website/">Website</a> . v1.0.1<br>
+        <a target="_blank" href="https://github.com/MarkE16">GitHub</a> . <a target="_blank" href="https://marke16.github.io/my-website/">Website</a> . v1.0.2<br>
 
       </p>
       <hr>
       <div id="actions">
-        <input type="text" id="in" placeholder="What needs to be done?" onkeypress="updateTodo(event);" oninput="updateTodo(event);">
+        <input type="text" id="in" placeholder="What needs to be done?">
         <button id="btn" disabled onclick="addTodo();">Add Todo</button>
         <button id="clearbtn" disabled onclick="clearTodos();">Clear All Todos</button>
       </div>

@@ -5,6 +5,10 @@
   font-family: 'Ubuntu', sans-serif;
 }
 
+::selection {
+  background-color: rgba(210, 210, 210, 0.48);
+}
+
 #todos-container {
   height: calc(100vh / 2);
   overflow-y: auto;
@@ -25,8 +29,6 @@ li {
   background-color: transparent;
   border: none;
   font-size: 15px;
-  border-radius: 0;
-
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
